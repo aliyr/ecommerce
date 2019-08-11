@@ -1,0 +1,163 @@
+@import "../../../partial-styles/colors";
+@import "../../../partial-styles/responsive";
+
+.login-container {
+  background-color: map-get($neutral-colors, "3");
+  .login-card {
+    @include xs {
+      padding: 30px 0;
+    }
+    @include lg {
+      margin: 20px 0 30px 0;
+      padding: 50px;
+    }
+    border-radius: 5px;
+    background-color: map-get($neutral-colors, "1");
+
+    .login-title {
+      color: map-get($primary-colors, "light");
+      font-family: "avant-garde-bold";
+      font-size: 25px;
+      @include xs {
+        margin-bottom: 10px;
+      }
+      @include lg {
+        margin-bottom: 30px;
+      }
+    }
+    .login-button-box {
+      @include xs {
+        flex-direction: column;
+      }
+      @include lg {
+        flex-direction: row;
+      }
+      .buttons {
+        border-radius: 5px;
+        width: 100%;
+        padding: 15px 0;
+        border: 0px;
+        outline: 0;
+        color: map-get($neutral-colors, "1");
+        font-size: 23px;
+        font-family: "avant-garde-bold";
+
+        @include xs {
+          margin-top: 10px;
+        }
+      }
+      .google-button {
+        background-color: #d34837;
+      }
+      .facebook-button {
+        background-color: #3a5998;
+      }
+      .login-button {
+        background-color: map-get($secondary-colors, "dark");
+        @include xs {
+          font-size: 15px;
+        }
+        @include lg {
+          font-size: 19px;
+        }
+      }
+      .register-button {
+        color: map-get($neutral-colors, "7");
+        @include xs {
+          font-size: 15px;
+        }
+        @include lg {
+          font-size: 19px;
+        }
+      }
+    }
+
+    .form-box {
+      margin-bottom: 20px;
+      font-family: "avant-garde-bold";
+      font-size: 15px;
+
+      .form-title {
+        color: map-get($neutral-colors, "7");
+        margin-bottom: 10px;
+      }
+      input {
+        font-family: "avant-garde-book";
+        padding: 10px;
+        width: 100%;
+        color: map-get($neutral-colors, "7");
+        background-color: map-get($neutral-colors, "3");
+        outline: 0;
+        border: 0;
+
+        &.error {
+          border: 2px solid map-get($primary-colors, "dark");
+        }
+      }
+    }
+    .line-bar {
+      position: relative;
+      @include customized-color(
+        background-color,
+        map_get($neutral-colors, "8"),
+        0.15
+      );
+      margin: 40px 0 30px 0;
+      &::after {
+        content: "OR";
+        background-color: map-get($neutral-colors, "1");
+        color: map-get($neutral-colors, "7");
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-family: "avant-garde-bold";
+        padding: 0 20px;
+      }
+    }
+    .sub-action {
+      justify-content: space-between;
+      align-content: center;
+      margin-bottom: 45px;
+      font-size: 15px;
+      font-family: "avant-garde-medium";
+      .right-side {
+        font-family: 'avant-garde-book';
+
+        button {
+          background-color: map-get($neutral-colors, "1");
+          border: 0;
+          outline: 0;
+        }
+      }
+      .left-side {
+        font-family: 'avant-garde-book';
+        #stayLoggedIn {
+          display: none;
+          &:checked + label .check-icon {
+            display: block;
+          }
+        }
+        label {
+          align-items: center;
+        }
+
+        .checkbox {
+          border: 2px solid #bababa;
+          width: 15px;
+          height: 15px;
+          margin: 0;
+          display: block;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          margin-right: 10px;
+          .check-icon {
+            transform: scale(0.8);
+            display: none;
+          }
+        }
+      }
+    }
+  }
+}

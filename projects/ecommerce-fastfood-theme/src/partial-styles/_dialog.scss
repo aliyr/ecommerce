@@ -1,0 +1,30 @@
+@import "colors";
+
+body{
+  .medium-dialog-width{
+    max-width: 550px;
+    margin-top: 65px;
+  }
+  .large-dialog-width{
+    max-width: 800px;
+    margin-top: 65px;
+  }
+}
+
+@mixin close-button {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  cursor: pointer;
+  background: linear-gradient(
+      map-get($primary-colors, "light"),
+      map-get($primary-colors, "dark")
+  );
+  color: map_get($neutral-colors, "1");
+  line-height: 40px;
+
+  i{
+    font-size: 17px;
+  }
+}
+

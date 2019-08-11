@@ -1,0 +1,59 @@
+@import "../../../partial-styles/colors";
+@import "../../../partial-styles/responsive";
+
+.action-btn {
+  text-transform: uppercase;
+  padding: 10px;
+  display: inline-block;
+  color: map_get($neutral-colors, "1");
+  font-size: 14.23px;
+  border-radius: 5.65px;
+  letter-spacing: 2px;
+  border: 0.52px solid map_get($neutral-colors, "1");
+  cursor: pointer;
+  font-family: "avant-garde-bold";
+  text-align: center;
+  line-height: 1em;
+}
+.horizontal-gradient {
+  background-image: linear-gradient(
+    to right,
+    map-get($primary-colors, "light"),
+    map-get($primary-colors, "dark")
+  );
+}
+.vertical-gradient {
+  background-image: linear-gradient(
+    map-get($primary-colors, "light"),
+    map-get($primary-colors, "dark")
+  );
+}
+
+.small {
+  padding: 10px;
+  font-size: 14px;
+  line-height: 14px;
+}
+
+.medium {
+  padding: 13px;
+  font-size: 17px;
+  line-height: 17px;
+}
+
+.large {
+  padding: 12px;
+  font-size: 19px;
+  line-height: 19px;
+}
+.button-xs {
+  @include xs {
+    height: 50px;
+    width: 100%;
+  }
+
+  @include md {
+    height: auto;
+    width: auto;
+  }
+}

@@ -1,0 +1,23 @@
+.order-btn {
+  text-transform: uppercase;
+  padding: 10px;
+  display: inline-block;
+  color: #ffffff;
+  font-size: 14.23px;
+  border-radius: 5.65px;
+  letter-spacing: 2px;
+  border: 0.52px solid #ffffff;
+  cursor: pointer;
+  font-family: "avant-garde-bold";
+  text-align: center;
+}
+
+.horizontal-gradient {
+  background-image: linear-gradient(to right, #f80000, #ce0000);
+}
+
+.vertical-gradient {
+  background-image: linear-gradient(#f80000, #ce0000);
+}
+
+/*# sourceMappingURL=action-button.component.css.map */

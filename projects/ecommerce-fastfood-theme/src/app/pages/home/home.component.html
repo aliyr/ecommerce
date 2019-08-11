@@ -1,0 +1,163 @@
+<div class="home-page container-fluid">
+  <div class="home-header row justify-content-center align-items-center">
+    <div class="content">
+      <h1 class="primary-title col-12">FINEST INGREDIENTS, BETTER PIZZA</h1>
+      <h2 class="secondary-title col-12">FAST FOOD - PIZZA - FREE DELIVERY</h2>
+      <div class="call-to-action col-12">
+        <ec-action-button gradient="vertical" size="large" (click)="openModal()"
+          >order now</ec-action-button
+        >
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-12 carousel-items-container">
+        <hr class="carousel-title" />
+        <!-- carousel is shown in devices with width more than 992px  -->
+        <div class="d-none d-lg-block">
+          <ec-carousel></ec-carousel>
+        </div>
+        <!-- this box is shown instead of carousel in devices with width less than 992px   -->
+
+        <div class=" d-lg-none">
+          <div class="col-12 meal-deals-box display-flex">
+            <div class="meal-deals-title">THE GREAT DOUBLE</div>
+            <div class="meal-deals-text">
+              ANY 2 REGULAR SIZED PIZZAS, POTATO WEDGES, GARLIC BREAD & 2 LITRE
+              BOTTLE OF COKE
+            </div>
+            <div class="meal-deals-price">
+              £18.50
+            </div>
+            <div class="meal-deals-action-box">
+              <ec-action-button
+                gradient="vertical"
+                size="large"
+                [styles]="{ width: '100%' }"
+                (click)="openModal()"
+                >order now</ec-action-button
+              >
+            </div>
+          </div>
+          <div class="col-12 meal-deals-box display-flex">
+            <div class="meal-deals-title">THE GREAT DOUBLE</div>
+            <div class="meal-deals-text">
+              ANY 2 REGULAR SIZED PIZZAS, POTATO WEDGES, GARLIC BREAD & 2 LITRE
+              BOTTLE OF COKE
+            </div>
+            <div class="meal-deals-price">
+              £18.50
+            </div>
+            <div class="meal-deals-action-box">
+              <ec-action-button
+                gradient="vertical"
+                size="large"
+                [styles]="{ width: '100%' }"
+                >order now</ec-action-button
+              >
+            </div>
+          </div>
+          <div class="col-12 meal-deals-box display-flex">
+            <div class="meal-deals-title">THE GREAT DOUBLE</div>
+            <div class="meal-deals-text">
+              ANY 2 REGULAR SIZED PIZZAS, POTATO WEDGES, GARLIC BREAD & 2 LITRE
+              BOTTLE OF COKE
+            </div>
+            <div class="meal-deals-price">
+              £18.50
+            </div>
+            <div class="meal-deals-action-box">
+              <ec-action-button
+                gradient="vertical"
+                size="large"
+                [styles]="{ width: '100%' }"
+                >order now</ec-action-button
+              >
+            </div>
+          </div>
+          <div class="col-12 meal-deals-box display-flex">
+            <div class="meal-deals-title">THE GREAT DOUBLE</div>
+            <div class="meal-deals-text">
+              ANY 2 REGULAR SIZED PIZZAS, POTATO WEDGES, GARLIC BREAD & 2 LITRE
+              BOTTLE OF COKE
+            </div>
+            <div class="meal-deals-price">
+              £18.50
+            </div>
+            <div class="meal-deals-action-box">
+              <ec-action-button
+                gradient="vertical"
+                size="large"
+                [styles]="{ width: '100%' }"
+                (click)="openModal()"
+                >order now</ec-action-button
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row greetings">
+    <div class="container">
+      <div class=" row justify-content-center align-items-center ">
+        <h2 class="greetings-title col-12 ">WELCOME TO TORINOZ BIRMINGHAM</h2>
+        <p class="greetings-paragraph col-12">
+          way based in Hall Green, Birmingham. Torinoz cooks delicious Bugers
+          and tasty pizzas. Torinoz also offers a wide selection of side orders
+          and great special offers you can't afford to miss.
+        </p>
+        <p class="greetings-paragraph col-12">
+          Torinoz just had a brand new online ordering website, so you can now
+          order directly from this website. Try Torinoz new website and our
+          delicious food by ordering online.
+        </p>
+        <div class="greetings-button col-12">
+          <ec-action-button
+            gradient="vertical"
+            size="large"
+            [maxWidthOnXS]="true"
+            (click)="openModal()"
+            >order now</ec-action-button
+          >
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <!-- image gallery is main container for gallery section -->
+    <div class="col-12 image-gallery">
+      <div class="row">
+        <!-- back-image handles background image and shader of gallery section -->
+        <div class="col-12 back-image">
+          <div class="container">
+            <div class="row align-items-center justify-content-center">
+              <div
+                class="col-xs-12 col-sm-12 col-md-6 col-lg-3 col-xl-3 images"
+              >
+                <img src="../../../assets/media/header-bg.png" alt="" />
+              </div>
+              <div
+                class="col-xs-12 col-sm-12 col-md-6 col-lg-3 col-xl-3 images"
+              >
+                <img src="../../../assets/media/header-bg.png" alt="" />
+              </div>
+              <div
+                class="col-xs-12 col-sm-12 col-md-6 col-lg-3 col-xl-3 images"
+              >
+                <img src="../../../assets/media/header-bg.png" alt="" />
+              </div>
+              <div
+                class="col-xs-12 col-sm-12 col-md-6 col-lg-3 col-xl-3 images"
+              >
+                <img src="../../../assets/media/header-bg.png" alt="" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

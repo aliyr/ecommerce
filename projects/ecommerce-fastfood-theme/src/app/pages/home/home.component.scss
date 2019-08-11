@@ -1,0 +1,193 @@
+@import "../../../partial-styles/colors";
+@import "../../../partial-styles/responsive";
+.home-page {
+  .home-header {
+    height: 470px;
+    background-image: url("../../../assets/media/header-bgx2.png");
+    background-size: cover;
+    background-position: center;
+    background-color: map-get($neutral-colors, "8");
+
+    .content {
+      flex-direction: column;
+      color: map_get($neutral-colors, "1");
+      text-transform: uppercase;
+      text-align: center;
+      width: 100%;
+
+      .primary-title {
+        font-family: "avant-garde-bold";
+        letter-spacing: 0.1em;
+        padding-bottom: 20px;
+        text-shadow: 0 0 6px map-get($neutral-colors, "8");
+        line-height: 50px;
+        @include xs {
+          font-size: 35px;
+        }
+        @include sm {
+          font-size: 41px;
+        }
+      }
+      .secondary-title {
+        line-height: 30px;
+        font-size: 20px;
+        font-family: "avant-garde-bold";
+        padding-bottom: 32px;
+        letter-spacing: 0.13em;
+        text-shadow: 0 0 6px map-get($neutral-colors, "8");
+      }
+      .call-to-action {
+      }
+    }
+  }
+  .meal-deals-box {
+    background: map_get($secondary-colors, "light");
+    color: map_get($neutral-colors, "1");
+    flex-direction: column;
+    text-align: center;
+    padding: 30px 20px;
+    font-family: "avant-garde-medium";
+    & ~ .meal-deals-box {
+      margin-top: 20px;
+    }
+    .meal-deals-title {
+      font-family: "avant-garde-bold";
+      margin-bottom: 15px;
+      @include xs {
+        font-size: 21px;
+      }
+      @include sm {
+        font-size: 24px;
+      }
+    }
+    .meal-deals-text {
+      font-family: "avant-garde-book";
+      font-size: 17px;
+      margin-bottom: 20px;
+      line-height: 25px;
+    }
+    .meal-deals-price {
+      font-size: 48px;
+      margin-bottom: 15px;
+    }
+  }
+  .carousel-items-container {
+    padding-bottom: 25px;
+    position: relative;
+
+    .carousel-title {
+      background-color: map_get($secondary-colors, "dark");
+      height: 2px;
+      border: none;
+      margin: 25px 0;
+      position: relative;
+      padding: 0;
+
+      &::after {
+        content: "meal deals";
+        position: absolute;
+        display: block;
+        color: map_get($primary-colors, "light");
+        font-family: "avant-garde-bold";
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: map_get($neutral-colors, "1");
+        padding: 0 13px;
+        font-size: 18px;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        min-width: 155px;
+      }
+    }
+  }
+  .greetings {
+    padding: 42px 0 47px 0;
+    text-align: center;
+    background-image: radial-gradient(
+      map-get($neutral-colors, "2"),
+      map-get($neutral-colors, "5")
+    );
+
+    min-height: 265px;
+    text-align: center;
+    flex-direction: column;
+    .greetings-title {
+      font-size: 26px;
+      color: map-get($primary-colors, "light");
+      font-family: "avant-garde-bold";
+      margin-bottom: 20px;
+      line-height: 30px;
+    }
+    .greetings-paragraph {
+      line-height: 25px;
+      margin-bottom: 20px;
+      font-size: 16px;
+      color: map-get($neutral-colors, "7");
+      font-family: "avant-garde-book";
+    }
+    .greetings-button {
+      margin-top: 10px;
+    }
+  }
+}
+
+.image-gallery {
+  overflow: hidden;
+  min-height: 265px;
+
+  .back-image {
+    min-height: 265px;
+    padding: 10px 0 25px 0;
+    position: relative;
+
+    .container {
+      position: relative;
+      z-index: 5;
+    }
+
+    &::before {
+      content: "";
+      display: block;
+      background-image: url(../../../assets/media/header-bgx2.png);
+      filter: blur(7px);
+      transform: scale(1.1);
+      background-color: map-get($neutral-colors, "8");
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 1;
+      width: 100%;
+      height: 100%;
+    }
+
+    &::after {
+      content: "";
+      width: 100%;
+      height: 100%;
+      background-color: rgba(49, 49, 49, 0.623);
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 2;
+    }
+
+    .images {
+      position: relative;
+      z-index: 3;
+      height: 260px;
+      & ~ .images {
+        @include lg {
+          padding-left: 0px;
+        }
+      }
+      margin-top: 15px;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+  }
+}

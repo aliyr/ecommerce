@@ -1,0 +1,82 @@
+@import "../../../partial-styles/colors";
+@import "../../../partial-styles/responsive";
+
+.contact-us {
+  background-color: map-get($neutral-colors, "3");
+  font-family: "avant-garde-medium";
+
+  @include xs {
+    padding: 30px 0;
+  }
+  @include lg {
+    padding: 70px 0 35px 0;
+  }
+
+  .contact-us-text {
+    font-size: 16px;
+    color: map-get($neutral-colors, "7");
+
+    .title {
+      color: map-get($primary-colors, "light");
+      font-size: 25px;
+      font-family: "avant-garde-bold";
+      margin-bottom: 20px;
+    }
+    .sub-title {
+      font-size: 21px;
+      margin-bottom: 15px;
+    }
+    .main-text {
+      margin-bottom: 25px;
+      p {
+        font-size: 16px;
+      }
+    }
+    .tel {
+      color: map-get($primary-colors, "light");
+      font-family: "avant-garde-bold";
+    }
+    .opening-time {
+      margin-bottom: 25px;
+      .open-time-title {
+        color: map-get($primary-colors, "light");
+        font-family: "avant-garde-bold";
+        font-size: 16px;
+        margin-bottom: 5px;
+      }
+      .collection-type {
+        margin-right: 10px;
+        font-family: "avant-garde-bold";
+        min-width: 90px;
+      }
+    }
+    .address {
+      font-size: 16px;
+      .address-header {
+        font-family: "avant-garde-bold";
+      }
+    }
+  }
+  .contact-us-form {
+    @include xs {
+      padding-top: 20px;
+    }
+    .form-input {
+      width: 100%;
+      margin-bottom: 22px;
+      background-color: map-get($neutral-colors, "1");
+      color: map-get($neutral-colors, "7");
+      font-size: 16px;
+      padding: 9px 15px;
+      border: 0px;
+      outline: 0;
+      font-family: "avant-garde-book";
+    }
+    .hasError {
+      border: 2px solid map-get($primary-colors, "dark");
+    }
+    .form-textarea {
+      height: 400px;
+    }
+  }
+}

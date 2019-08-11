@@ -1,0 +1,33 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "baseUrl": "./",
+    "downlevelIteration": true,
+    "outDir": "./dist/out-tsc",
+    "sourceMap": true,
+    "declaration": false,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "importHelpers": true,
+    "target": "es2015",
+    "typeRoots": [
+      "node_modules/@types"
+    ],
+    "lib": [
+      "es2018",
+      "dom"
+    ],
+    "paths": {
+      "fast-food/*":["projects/ecommerce-fastfood-theme/src/*"],
+      "ecommerce-core": [
+        "dist/ecommerce-core"
+      ],
+      "ecommerce-core/*": [
+        "dist/ecommerce-core/*"
+      ],
+      "clothe-shop/*":["projects/ecommerce-clothe-shop-theme/src/*"]
+    }
+  }
+}

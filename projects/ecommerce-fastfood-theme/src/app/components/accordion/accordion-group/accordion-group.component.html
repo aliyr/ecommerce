@@ -1,0 +1,11 @@
+<div (click)="toggleBody()">
+  <ng-content select="[header]"></ng-content>
+</div>
+
+<div
+  class="accordion-body-container"
+  [@openClose]="accordionState ? 'open' : 'closed'"
+  (@openClose.done)="animationDone($event)"
+>
+  <ng-content select="[body]"></ng-content>
+</div>

@@ -1,0 +1,21 @@
+<div class="select-container">
+  <input
+    type="text"
+    name="country"
+    [value]="selectedOption"
+    (focus)="openClose()"
+    (blur)="openClose()"
+    readonly
+  />
+  <span class="open-icon" [ngClass]="{ 'rotate-icon': isSelectOpen }"
+    ><i class="far fa-chevron-down"></i
+  ></span>
+
+  <div class="options-box" [hidden]="!isSelectOpen">
+    <div class="scroll-box">
+      <div *ngFor="let data of datas" (click)="selectData(data)">
+        {{ data }}
+      </div>
+    </div>
+  </div>
+</div>

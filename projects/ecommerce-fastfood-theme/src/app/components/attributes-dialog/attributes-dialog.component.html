@@ -1,0 +1,195 @@
+<div class="attributes-container">
+  <div class="header">
+    <div class="product-title">8” Margarita</div>
+    <div class="close-button" (click)="bsModalRef.hide()">
+      <i class="fa fa-times"></i>
+    </div>
+  </div>
+  <ec-accordion>
+    <ec-accordion-group
+      *ngFor="
+        let attributeGroup of extendedAttributesGroups;
+        let attributeGroupIndex = index
+      "
+      [(accordionState)]="attributeGroup.isOpen"
+    >
+      <ec-accordion-header header>
+        <div class="accordion-header-container">
+          <div class="accordion-main-head">{{ attributeGroup.title }}</div>
+          <div class="accordion-actions-container">
+            <!-- a box to be checked when atleast one atrribute from that group is selected  -->
+
+            <!-- <div class="attribute-checked-container">
+              <div
+                class="is-valid-container"
+                [ngClass]="{ filled: attributeGroup.isValid }"
+              >
+                <span class="check-container">
+                  <i class="fa fa-check"></i>
+                </span>
+              </div>
+            </div> -->
+
+            <div class="toggle-button">
+              <i
+                class="fas fa-chevron-down accordion-icon"
+                [ngClass]="{ 'is-accordion-open': attributeGroup.isOpen }"
+              ></i>
+            </div>
+          </div>
+        </div>
+      </ec-accordion-header>
+      <ec-accordion-body body>
+        <!-- Single Select attributes -->
+        <div
+          class="attributes-items-container single-select"
+          *ngIf="!attributeGroup.multiSelect"
+        >
+          <div
+            class="attribute"
+            *ngFor="
+              let item of attributeGroup.attributes;
+              let attributeIndex = index
+            "
+          >
+            <div
+              class="attribute-selector"
+              [ngClass]="{ checked: item.isSelected }"
+              (click)="
+                checkAttribute(
+                  attributeIndex,
+                  attributeGroupIndex,
+                  attributeGroup.multiSelect
+                )
+              "
+            >
+              {{ item.name }}
+              <div>
+                <span class="price" [hidden]="!item.price">
+                  +{{ item.price | currency: item.currency }}
+                </span>
+                <span class="check-container">
+                  <i class="fa fa-check"></i>
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="attribute-next-action-container"
+          *ngIf="!attributeGroup.multiSelect"
+        >
+          <button
+            [disabled]="!attributeGroup.isValid || !isAttributeFormValid"
+            [ngClass]="{
+              disabled: !attributeGroup.isValid || !isAttributeFormValid
+            }"
+            *ngIf="attributeGroupIndex == extendedAttributesGroups.length - 1"
+            (click)="addAttributes(); bsModalRef.hide()"
+          >
+            Add To Order
+          </button>
+          <button
+            [disabled]="!attributeGroup.isValid"
+            [ngClass]="{ disabled: !attributeGroup.isValid }"
+            *ngIf="attributeGroupIndex !== extendedAttributesGroups.length - 1"
+            (click)="goToNextSection(attributeGroupIndex)"
+          >
+            Next
+          </button>
+        </div>
+
+        <!-- Multi Select attributes -->
+        <div
+          class="attributes-items-container multi-select"
+          *ngIf="attributeGroup.multiSelect"
+        >
+          <div
+            class="attribute"
+            [ngClass]="{
+              'no-checked': item.isSelected && item.selectionState == 'no'
+            }"
+            *ngFor="
+              let item of attributeGroup.attributes;
+              let attributeIndex = index
+            "
+            (click)="
+              checkAttribute(
+                attributeIndex,
+                attributeGroupIndex,
+                attributeGroup.multiSelect
+              )
+            "
+          >
+            <div class="name">{{ item.name }}</div>
+            <div class="status-container">
+              <div class="price">
+                +{{ item.price | currency: item.currency }}
+              </div>
+              <div class="selection-container">
+                <span
+                  class="check-container"
+                  [ngClass]="{
+                    'yes-checked':
+                      item.isSelected && item.selectionState == 'yes',
+                    'no-checked': item.isSelected && item.selectionState == 'no'
+                  }"
+                >
+                  <i
+                    class="fa fa-times"
+                    *ngIf="item.isSelected && item.selectionState == 'no'"
+                  ></i>
+                  <i
+                    class="fa fa-check"
+                    *ngIf="
+                      (item.isSelected && item.selectionState == 'yes') ||
+                      !item.isSelected
+                    "
+                  ></i>
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="attribute-selection-type-container"
+          *ngIf="attributeGroup.multiSelect"
+        >
+          <button
+            (click)="noButtonSelected = !noButtonSelected"
+            [ngClass]="{ selected: noButtonSelected }"
+          >
+            No
+            <span class="check-container">
+              <i class="fa fa-check"></i>
+            </span>
+          </button>
+          <button
+            [disabled]="!attributeGroup.isValid || !isAttributeFormValid"
+            [ngClass]="{
+              disabled: !attributeGroup.isValid || !isAttributeFormValid
+            }"
+            *ngIf="attributeGroupIndex == extendedAttributesGroups.length - 1"
+            (click)="addAttributes(); bsModalRef.hide()"
+          >
+            Add To Order
+            <span class="check-container">
+              <i class="fa fa-chevron-right"></i>
+            </span>
+          </button>
+          <button
+            [disabled]="!attributeGroup.isValid"
+            [ngClass]="{ disabled: !attributeGroup.isValid }"
+            *ngIf="attributeGroupIndex !== extendedAttributesGroups.length - 1"
+            (click)="goToNextSection(attributeGroupIndex)"
+          >
+            Next
+            <span class="check-container">
+              <i class="fa fa-chevron-right"></i>
+            </span>
+          </button>
+        </div>
+      </ec-accordion-body>
+    </ec-accordion-group>
+  </ec-accordion>
+</div>

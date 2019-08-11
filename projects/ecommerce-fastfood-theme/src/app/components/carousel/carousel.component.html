@@ -1,0 +1,22 @@
+<owl-carousel-o [options]="customOptions" class="owl-carousel-custom" #owlCar>
+  <ng-container *ngFor="let slide of mealDealProducts">
+    <ng-template class="carousel-item-o" carouselSlide [id]="slide">
+      <div class="carousel-item-o">
+        <div class="content-box">
+          <div class="title">{{slide.name}}</div>
+          <div class="ingredients">{{slide.ingredients}}</div>
+          <div class="price">{{slide.price | currency:slide.currency}}</div>
+          <div class="call-to-action">
+            <ec-action-button [styles]="{width: '80%'}" size="large" gradient="horizontal" (click)="openModal()">order now</ec-action-button>
+          </div>
+        </div>
+      </div>
+    </ng-template>
+  </ng-container>
+</owl-carousel-o>
+<a class="carousel-next-button carousel-custom" (click)="owlCar.prev()">
+  <i class="fa fa-chevron-left"></i>
+</a>
+<a class="carousel-prev-button carousel-custom" (click)="owlCar.next()">
+  <i class="fa fa-chevron-right"></i>
+</a>

@@ -1,0 +1,244 @@
+<div class="register-container">
+  <ec-page-card>
+    <div class="col-12 col-lg-9 ">
+      <div class="form-container row" [formGroup]="registerForm">
+        <div class="col-12 register-header">Please enter your details</div>
+        <div class="col-lg-6 col-12 elements-container">
+          <input
+            type="radio"
+            value="delivery"
+            id="delivery-box"
+            formControlName="collectType"
+            checked
+          />
+          <label class="radio-box" for="delivery-box">
+            Delivery
+            <span class="check">
+              <i class="far fa-check"></i>
+            </span>
+          </label>
+        </div>
+        <div class="col-lg-6 col-12 elements-container small-screen-margin">
+          <input
+            type="radio"
+            formControlName="collectType"
+            value="collection"
+            id="Collections-box"
+          />
+          <label class="radio-box" for="Collections-box">
+            Collections
+            <span class="check">
+              <i class="far fa-check"></i>
+            </span>
+          </label>
+        </div>
+        <div class="col-lg-6 col-12">
+          <div class="elements-container">
+            When would you like it?
+            <div class="text-inputs">
+              <ec-custom-select controlName="collectTime"></ec-custom-select>
+            </div>
+          </div>
+
+          <div class="elements-container">
+            First Name
+            <div class="text-inputs">
+              <input
+                type="text"
+                formControlName="firstName"
+                [ngClass]="{
+                  error:
+                    registerForm.get('firstName').invalid &&
+                    registerForm.get('firstName').touched
+                }"
+              />
+            </div>
+          </div>
+
+          <div class="elements-container">
+            Last Name
+            <div class="text-inputs">
+              <input
+                type="text"
+                formControlName="lastName"
+                [ngClass]="{
+                  error:
+                    registerForm.get('lastName').invalid &&
+                    registerForm.get('lastName').touched
+                }"
+              />
+            </div>
+          </div>
+
+          <div class="elements-container">
+            Door Number
+            <div class="text-inputs">
+              <input
+                type="text"
+                formControlName="doorNumber"
+                [ngClass]="{
+                  error:
+                    registerForm.get('doorNumber').invalid &&
+                    registerForm.get('doorNumber').touched
+                }"
+              />
+            </div>
+          </div>
+
+          <div class="elements-container">
+            Postcode
+            <div class="text-inputs">
+              <input
+                type="text"
+                formControlName="postcode"
+                [ngClass]="{
+                  error:
+                    registerForm.get('postcode').invalid &&
+                    registerForm.get('postcode').touched
+                }"
+              />
+            </div>
+          </div>
+          <div class="elements-container">
+            Voucher Code
+            <div class="text-inputs">
+              <input
+                type="text"
+                formControlName="voucherCode"
+                [ngClass]="{
+                  error:
+                    registerForm.get('voucherCode').invalid &&
+                    registerForm.get('voucherCode').touched
+                }"
+              />
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6 col-12">
+          <div class="elements-container">
+            Address Line 1
+            <div class="text-inputs">
+              <input
+                type="text"
+                formControlName="addressLine1"
+                [ngClass]="{
+                  error:
+                    registerForm.get('addressLine1').invalid &&
+                    registerForm.get('addressLine1').touched
+                }"
+              />
+            </div>
+          </div>
+
+          <div class="elements-container">
+            Address Line 2
+            <div class="text-inputs">
+              <input
+                type="text"
+                formControlName="addressLine2"
+                [ngClass]="{
+                  error:
+                    registerForm.get('addressLine2').invalid &&
+                    registerForm.get('addressLine2').touched
+                }"
+              />
+            </div>
+          </div>
+
+          <div class="elements-container">
+            Address Line 3
+            <div class="text-inputs">
+              <input
+                type="text"
+                formControlName="addressLine3"
+                [ngClass]="{
+                  error:
+                    registerForm.get('addressLine3').invalid &&
+                    registerForm.get('addressLine3').touched
+                }"
+              />
+            </div>
+          </div>
+
+          <div class="elements-container">
+            Email
+            <div class="text-inputs">
+              <input
+                type="text"
+                formControlName="email"
+                [ngClass]="{
+                  error:
+                    registerForm.get('email').invalid &&
+                    registerForm.get('email').touched
+                }"
+              />
+            </div>
+          </div>
+
+          <div class="elements-container">
+            Telephone Number
+            <div class="text-inputs">
+              <input
+                type="text"
+                formControlName="telephoneNumber"
+                [ngClass]="{
+                  error:
+                    registerForm.get('telephoneNumber').invalid &&
+                    registerForm.get('telephoneNumber').touched
+                }"
+              />
+            </div>
+          </div>
+        </div>
+        <div class="col-12 payment-header">Payment</div>
+        <div class="col-lg-6 col-12 elements-container">
+          <input
+            type="radio"
+            id="cash-box"
+            formControlName="paymentType"
+            value="cash"
+            checked
+          />
+          <label class="radio-box" for="cash-box">
+            Cash
+            <span class="check">
+              <i class="far fa-check"></i>
+            </span>
+          </label>
+        </div>
+        <div class="col-lg-6 col-12 elements-container">
+          <input
+            type="radio"
+            id="card-box"
+            formControlName="paymentType"
+            value="card"
+          />
+          <label class="radio-box" for="card-box">
+            Card
+            <span class="check">
+              <i class="far fa-check"></i>
+            </span>
+          </label>
+        </div>
+
+        <div class="col-12">
+          <hr class="line d-none d-lg-block" />
+        </div>
+        <div class="col-12">
+          <button
+            class="buttons form-review-order-button"
+            (click)="submitRegisterForm()"
+            [ngClass]="{ 'disabled-button': !registerForm.valid }"
+          >
+            Review Order
+          </button>
+        </div>
+        <div class="col-12">
+          <button class="buttons form-back-button" [routerLink]="['/order']">
+            Go Back
+          </button>
+        </div>
+      </div>
+    </div>
+  </ec-page-card>
+</div>

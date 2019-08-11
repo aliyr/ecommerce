@@ -1,0 +1,41 @@
+<div class="header-container">
+  <div class="header-top">
+    <div class="container">
+      <div class="row top-header-container">
+        <div class="col-5 top-header-left-side">
+          <span class="need-help">
+            <span class="gray-scale">Need help? </span>
+            <a> Get in touch</a>
+          </span>
+          <span class="gray-scale">FREE DELIVERY</span>
+        </div>
+        <div class="col-6 top-header-right-side">
+          <button class="right-side-elements">ABOUT</button>
+          <button class="right-side-elements">BLOG</button>
+          <button class="right-side-elements">CONTACT US</button>
+
+          <a class="right-side-elements"><i class="fab fa-facebook-f"></i></a>
+          <a class="right-side-elements"><i class="fab fa-twitter"></i></a>
+          <a class="right-side-elements"><i class="fab fa-linkedin-in"></i></a>
+          <a class="right-side-elements"><i class="fab fa-instagram"></i></a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="header-bottom" [ngClass]="{'home-page-header': isOnHomePage}">
+    <div class="container">
+      <div class="row bottom-header-container">
+        <div class="col-2">MINIMAL LONDON</div>
+        <div class="col-8 header-menu">
+          <button class="menu-elements">HOME</button>
+          <button class="menu-elements">MENS</button>
+          <button class="menu-elements">WOMEN</button>
+          <button class="menu-elements">KIDS</button>
+          <button class="menu-elements">ACCESSORIES</button>
+          <button class="menu-elements"><span class="shopping-bag" [ngClass]="{'home-page-shopping-bag': isOnHomePage}"></span> SHOPPING BAG (1)</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

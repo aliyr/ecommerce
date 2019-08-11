@@ -1,0 +1,70 @@
+@import "../../../partial-styles/colors";
+
+.select-container {
+  font-family: "avant-garde-book";
+  width: 100%;
+  position: relative;
+  background-color: map-get($neutral-colors, "3");
+
+  input[type="text"] {
+    cursor: pointer;
+    width: 100%;
+    height: 42px;
+    background-color: transparent;
+    padding: 0 35px 0 15px;
+    outline: 0;
+    border: 0;
+    text-overflow: ellipsis;
+    position: relative;
+    z-index: 3;
+    &::after {
+      content: "23423";
+      width: 20px;
+      height: 20px;
+      display: block;
+    }
+  }
+  .open-icon {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translate(0, -50%);
+    font-size: 20px;
+    z-index: 2;
+  }
+  .rotate-icon {
+    transform: translate(0, -50%) rotate(180deg);
+  }
+  .options-box {
+    position: absolute;
+    top: 55px;
+    background-color: map-get($neutral-colors, "3");
+    width: 100%;
+    z-index: 1;
+
+    &:after {
+      content: "";
+      width: 20px;
+      height: 20px;
+      border: 10px solid transparent;
+      border-bottom: 10px solid map-get($neutral-colors, "3");
+
+      display: block;
+      position: absolute;
+      top: -20px;
+      right: 20px;
+    }
+    .scroll-box {
+      max-height: 300px;
+      overflow: auto;
+      overflow-x: hidden;
+    }
+    div {
+      padding: 10px;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      cursor: pointer;
+    }
+  }
+}

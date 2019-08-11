@@ -1,0 +1,16 @@
+<button
+  class="action-btn"
+  [routerLink]="buttonRoute"
+  [ngClass]="{
+    'horizontal-gradient': gradient == 'horizontal',
+    'vertical-gradient': gradient == 'vertical',
+    small: size === 'small',
+    medium: size === 'medium',
+    large: size === 'large',
+    'button-xs': maxWidthOnXS === true
+  }"
+  [ngStyle]="styles"
+  [class]="classNames"
+>
+  <ng-content></ng-content>
+</button>

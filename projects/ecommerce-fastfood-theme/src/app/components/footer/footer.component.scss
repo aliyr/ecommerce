@@ -1,0 +1,59 @@
+@import "../../../partial-styles/colors";
+@import "../../../partial-styles/responsive";
+
+.main-footer {
+  padding: 30px 0 80px 0;
+  background-color: map-get($neutral-colors, "8");
+  color: map-get($neutral-colors, "1");
+
+  @include xs {
+    min-height: 100px;
+  }
+
+  @include md {
+    min-height: 263px;
+  }
+
+  .footer-right-side {
+    justify-content: space-between;
+    @include xs {
+      flex-direction: column;
+    }
+
+    @include md {
+      flex-direction: row;
+    }
+  }
+  .footer-elements {
+    font-family: "avant-garde-book";
+    margin: 0 15px 10px 0;
+  }
+  .cards-box {
+    flex-direction: column;
+    justify-content: flex-start;
+    flex-flow: wrap;
+  }
+  .footer-texts-box {
+    @include xs {
+      flex-direction: column;
+      margin-bottom: 15px;
+    }
+    @include md {
+      margin-bottom: 0;
+      flex-direction: row;
+    }
+  }
+  .footer-texts {
+    margin: 0 15px 10px 0;
+    @include xs {
+      white-space: nowrap;
+    }
+    @include sm {
+      white-space: normal;
+    }
+  }
+  .cards-icon {
+    font-size: 24px;
+    color: map-get($neutral-colors, "1");
+  }
+}

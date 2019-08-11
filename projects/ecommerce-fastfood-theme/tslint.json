@@ -1,0 +1,21 @@
+{
+  "extends": "../../tslint.json",
+  "rules": {
+    "directive-selector": [
+      true,
+      "attribute",
+      "ec",
+      "camelCase"
+    ],
+    "component-selector": [
+      true,
+      "element",
+      "ec",
+      "kebab-case"
+    ],
+    "quotemark": false,
+    "no-trailing-whitespace": false,
+    "no-unused-expression": false,
+    "max-line-length": false
+  }
+}

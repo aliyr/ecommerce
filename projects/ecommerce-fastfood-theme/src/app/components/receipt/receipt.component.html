@@ -1,0 +1,70 @@
+<div class="receipt sticky-top">
+  <div class="receipt-header">Your Order</div>
+  <div class="takeaway">
+    <input id="delivery" type="radio" name="takeaway" [(ngModel)]="userInfoCoreService.userInfo.collectType" value="delivery">
+    <label for="delivery">
+      Delivery
+      <span class="check-container">
+        <i class="fa fa-check"></i>
+      </span>
+    </label>
+    <input id="collection" type="radio" name="takeaway" [(ngModel)]="userInfoCoreService.userInfo.collectType" value="collection">
+    <label for="collection">
+      Collection
+      <span class="check-container">
+        <i class="fa fa-check"></i>
+      </span>
+    </label>
+  </div>
+  <div class="order-details" *ngIf="receiptCoreService.receipt.orderItems.length">
+    <div class="order-item" *ngFor="let orderItem of receiptCoreService.receipt.orderItems; let i = index">
+      <button class="remove" (click)="receiptCoreService.removeOrderItem(i)">
+        <i class="fa fa-times"></i>
+      </button>
+      <div class="title">
+        <div class="name">{{orderItem.product.name}}</div>
+        <div class="price">{{orderItem.product.price | currency: orderItem.product.currency}}</div>
+      </div>
+      <div class="attributes-container">
+        <div class="paid" *ngIf="orderItem.paidAttributes && orderItem.paidAttributes.length > 0">
+          <div class="item" *ngFor="let paidAttributes of orderItem.paidAttributes">
+            <div class="name">
+              <div class="logo">+</div>
+              <div class="char">{{paidAttributes.name}}</div>
+            </div>
+            <div class="price">{{paidAttributes.price | currency: paidAttributes.currency}}</div>
+          </div>
+        </div>
+        <div class="no" *ngIf="orderItem.noAttributes && orderItem.noAttributes.length > 0">
+          <div class="logo"></div>
+          <div class="items-container">
+            <div class="logo">No</div>
+            <div class="items">
+              <span *ngFor="let noAttributes of orderItem.noAttributes; let i = index">{{noAttributes.name}}<span *ngIf="i + 1 < orderItem.noAttributes.length">, </span></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="summary" *ngIf="receiptCoreService.receipt.orderItems.length">
+    <div class="subtotal">
+      <div class="title">Subtotal</div>
+      <div class="price">{{receiptCoreService.receipt.subTotal | currency: receiptCoreService.receipt.currency}}</div>
+    </div>
+    <div class="delivery" *ngIf="receiptCoreService.receipt.deliveryCharge && userInfoCoreService.userInfo.collectType === 'delivery'">
+      <div class="title">Delivery</div>
+      <div class="price">{{receiptCoreService.receipt.deliveryCharge | currency: receiptCoreService.receipt.currency}}</div>
+    </div>
+    <div class="total">
+      <div class="title">Total</div>
+      <div class="price">{{receiptCoreService.receipt.total | currency: receiptCoreService.receipt.currency}}</div>
+    </div>
+  </div>
+  <div class="summary" *ngIf="!receiptCoreService.receipt.orderItems.length">
+    <p>You don’t have any items in your basket</p>
+  </div>
+  <div class="checkout" *ngIf="receiptCoreService.receipt.orderItems.length">
+    <button [routerLink]="['/register-detail']" >Checkout</button>
+  </div>
+</div>

@@ -1,0 +1,16 @@
+<div class="dialog postcode-dialog">
+  <div class="close-button" (click)="bsModalRef.hide()">
+    <i class="fa fa-times"></i>
+  </div>
+  <div class="title">Please enter your postcode</div>
+  <div class="input-container">
+    <input type="text" placeholder="Enter Postcode" />
+  </div>
+  <div class="error-box">
+    <div class="content">Sorry, we don't deliver to your postcode</div>
+  </div>
+  <div class="button-container">
+    <button class="cancel">Back</button>
+    <button class="confirm" (click)="checkPostCode()">Next</button>
+  </div>
+</div>

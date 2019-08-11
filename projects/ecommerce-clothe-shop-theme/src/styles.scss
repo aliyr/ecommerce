@@ -1,0 +1,19 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import "~@fortawesome/fontawesome-pro/css/all.min.css";
+@import "~bootstrap/scss/bootstrap-grid";
+@import "~bootstrap/scss/bootstrap-reboot";
+
+@import "partial-styles/font";
+@import "partial-styles/colors";
+@import "partial-styles/responsive";
+@import "partial-styles/custom-scroll-bar";
+
+
+*,
+*::after,
+*::before {
+  scroll-behavior: smooth;
+  line-height: 1em;
+}
+

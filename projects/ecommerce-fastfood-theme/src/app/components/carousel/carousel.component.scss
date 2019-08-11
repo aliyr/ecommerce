@@ -1,0 +1,55 @@
+@import "../../../partial-styles/colors";
+
+.carousel-item-o {
+  padding: 0 10px;
+
+  .content-box {
+    background: map_get($secondary-colors, "light");
+    color: map_get($neutral-colors, "1");
+    padding: 20px;
+    text-align: center;
+
+    .title {
+      font-size: 19px;
+      padding-bottom: 15px;
+      font-family: "avant-garde-bold";
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      padding-top: 8px;
+    }
+
+    .ingredients {
+      text-align: center;
+      font-size: 13px;
+      padding-bottom: 15px;
+      font-family: "avant-garde-book";
+      text-transform: uppercase;
+      line-height: 1.6em;
+    }
+
+    .price {
+      font-size: 37px;
+      padding-bottom: 20px;
+      font-family: "avant-garde-medium";
+    }
+
+    .call-to-action {
+      padding-bottom: 5px;
+    }
+  }
+}
+
+.carousel-custom {
+  position: absolute;
+  cursor: pointer;
+  top: 50%;
+  font-size: 15px;
+  color: #765867;
+
+  &.carousel-next-button {
+    left: -32px;
+  }
+  &.carousel-prev-button {
+    right: -32px;
+  }
+}

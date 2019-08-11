@@ -1,0 +1,157 @@
+@import "../../../partial-styles/colors";
+@import "../../../partial-styles/responsive";
+
+.register-container {
+  background-color: map-get($neutral-colors, "3");
+  font-family: "avant-garde-medium";
+  @include lg {
+    padding: 20px 0 40px 0;
+  }
+  .form-container {
+    background-color: map-get($neutral-colors, "1");
+    @include xs {
+      padding: 30px 0 15px 0;
+      .small-screen-margin {
+        margin-bottom: 10px;
+      }
+    }
+    @include lg {
+      padding: 45px 40px 25px 40px;
+      .small-screen-margin {
+        margin-bottom: 0px;
+      }
+    }
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.15);
+    border-radius: 5px;
+    font-family: "avant-garde-bold";
+  }
+  .register-header {
+    color: map-get($primary-colors, "light");
+    font-size: 25px;
+
+    @include xs {
+      margin-bottom: 20px;
+    }
+    @include lg {
+      margin-bottom: 25px;
+    }
+  }
+  .payment-header {
+    padding-bottom: 10px;
+  }
+  .elements-container {
+    .radio-box {
+      border-radius: 5.5px;
+      background-color: map-get($neutral-colors, "4");
+      width: 100%;
+      font-family: "avant-garde-bold";
+      position: relative;
+      @include xs {
+        margin-bottom: 10px;
+        height: 42px;
+        padding: 12px 17px;
+        font-size: 15px;
+      }
+      @include lg {
+        margin-bottom: 40px;
+        padding: 16px 25px;
+        height: 56px;
+        font-size: 19px;
+      }
+      span {
+        position: absolute;
+        right: 10px;
+        width: 35px;
+        height: 35px;
+        border-radius: 50%;
+        background-color: rgba(0, 0, 0, 0.1);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        top: 50%;
+
+        i {
+          font-size: 22px;
+          color: map-get($neutral-colors, "1");
+          display: none;
+        }
+        @include xs {
+          transform: translate(0, -50%) scale(0.8);
+        }
+        @include lg {
+          transform: translate(0, -50%) scale(1);
+        }
+      }
+    }
+
+    .text-inputs {
+      margin-top: 10px;
+      margin-bottom: 25px;
+      input[type="text"] {
+        outline: 0;
+        border: 0;
+        min-height: 42px;
+        background-color: map-get($neutral-colors, "3");
+        width: 100%;
+        padding-left: 15px;
+        &.error {
+          border: 2px solid map-get($primary-colors, "dark");
+        }
+        font-family: "avant-garde-book";
+      }
+    }
+  }
+
+  input[type="radio"] {
+    display: none;
+  }
+  input[type="radio"]:checked + label.radio-box {
+    background-color: map-get($secondary-colors, "light");
+    color: map-get($neutral-colors, "1");
+    span {
+      background-color: rgba(0, 0, 0, 0.23);
+      i {
+        display: block;
+      }
+    }
+  }
+
+  hr.line {
+    margin: 0 0 25px 0;
+    height: 1px;
+    background-color: map-get($neutral-colors, "3");
+    width: 100%;
+  }
+  .buttons {
+    &.disabled-button {
+      opacity: 0.3;
+    }
+    width: 100%;
+    @include xs {
+      margin-bottom: 10px;
+      font-size: 15px;
+    }
+    @include lg {
+      margin-bottom: 20px;
+      font-size: 19px;
+    }
+    outline: 0;
+    border: none;
+    height: 56px;
+    border-radius: 5px;
+  }
+  .form-review-order-button {
+    background-color: map-get($secondary-colors, "dark");
+    color: white;
+    @include xs {
+      margin-top: 30px;
+    }
+    @include lg {
+      margin-top: 0px;
+    }
+  }
+  .form-back-button {
+    background-color: map-get($neutral-colors, "4");
+    color: map-get($neutral-colors, "7");
+  }
+}

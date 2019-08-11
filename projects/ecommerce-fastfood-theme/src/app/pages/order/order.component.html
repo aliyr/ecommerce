@@ -1,0 +1,137 @@
+<div id="order-page">
+  <ec-page-card>
+    <div class="col-3 categories d-none d-lg-block">
+      <div class="sticky-top">
+        <div class="categories-title">
+          Categories
+        </div>
+        <div class="categories-box">
+          <div
+            class=" each-category  hide-text-overflow"
+            [ngClass]="{ 'each-category-selected': category.isActive }"
+            (click)="selectCategory(category, index)"
+            *ngFor="
+              let category of productsCoreService.productsCategory;
+              let index = index
+            "
+          >
+            {{ category.name }}
+            <i
+              class="fas fa-chevron-right category-icon"
+              [hidden]="!category.isActive"
+            ></i>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-12 col-md-8 col-lg-6 products">
+      <div class="products-search-bar">
+        <input type="text" class="products-search" placeholder="Search" />
+        <i class="far fa-search search-icon"></i>
+      </div>
+
+      <div class="products-accordion">
+        <ec-accordion>
+          <ec-accordion-group
+            *ngFor="let category of productsCoreService.productsCategory"
+            [(accordionState)]="category.isActive"
+            (accordionFullyOpened)="scrollto($event)"
+          >
+            <ec-accordion-header header>
+              <div class="accordion-header-container">
+                <div class="accordion-main-head">{{ category.name }}</div>
+                <div class="accordion-sub-head">
+                  {{ category.description }}
+                  <i
+                    class="fas fa-chevron-down accordion-icon "
+                    [ngClass]="{
+                      'accordion-icon-selected': category.isActive
+                    }"
+                  ></i>
+                </div>
+              </div>
+            </ec-accordion-header>
+
+            <ec-accordion-body
+              body
+              class="accordion-body-container"
+              *ngFor="let product of category.products"
+            >
+              <div class="accordion-products display-flex">
+                <div class="left-side display-flex">
+                  <div>{{ product.orderNo }}</div>
+                  <div class="food-name">{{ product.name }}</div>
+                </div>
+                <div class="right-side display-flex">
+                  <div class="price">
+                    {{ product.price | currency: product.currency }}
+                  </div>
+                  <div>
+                    <ec-action-button
+                      gradient="vertical"
+                      [styles]="{
+                        fontSize: '12px',
+                        borderRadius: '7px',
+                        padding: ' 9px 10px'
+                      }"
+                      (click)="
+                        openAttributesModal(); selectProductForReceipt(product)
+                      "
+                      >add</ec-action-button
+                    >
+                  </div>
+                </div>
+              </div>
+            </ec-accordion-body>
+
+            <ec-accordion-body
+              body
+              class="accordion-body-container"
+              *ngFor="let subCat of category.subCategory"
+            >
+              <div class="accordion-products display-flex">
+                <div class="left-side ">
+                  <div class="sub-cat-title">{{ subCat.title }}</div>
+                  <div class="sub-cat-description">
+                    {{ subCat.description }}
+                  </div>
+                </div>
+              </div>
+              <div *ngFor="let product of subCat.product">
+                <div class="accordion-products display-flex">
+                  <div class="left-side display-flex">
+                    <div>{{ product.orderNo }}</div>
+                    <div class="food-name">{{ product.name }}</div>
+                  </div>
+                  <div class="right-side display-flex">
+                    <div class="price">
+                      {{ product.price | currency: product.currency }}
+                    </div>
+                    <div>
+                      <ec-action-button
+                        gradient="vertical"
+                        [styles]="{
+                          fontSize: '12px',
+                          borderRadius: '7px',
+                          padding: ' 9px 10px'
+                        }"
+                        (click)="
+                          openAttributesModal();
+                          selectProductForReceipt(product)
+                        "
+                        >add</ec-action-button
+                      >
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </ec-accordion-body>
+          </ec-accordion-group>
+        </ec-accordion>
+      </div>
+    </div>
+    <div class="col-12 col-md-4 col-lg-3 receipt">
+      <ec-receipt></ec-receipt>
+    </div>
+  </ec-page-card>
+</div>

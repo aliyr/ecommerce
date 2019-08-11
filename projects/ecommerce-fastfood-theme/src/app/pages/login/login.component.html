@@ -1,0 +1,82 @@
+<div class="login-container">
+  <ec-page-card>
+    <div class="col-12 col-lg-9 login-card" [formGroup]="loginForm">
+      <div class="col-12 login-title">Log in</div>
+      <div class=" login-button-box display-flex">
+        <div class="col-12 col-lg-6">
+          <button class="buttons google-button">
+            Google
+          </button>
+        </div>
+        <div class="col-12 col-lg-6">
+          <button class="buttons facebook-button">
+            Facebook
+          </button>
+        </div>
+      </div>
+      <div class="col-12">
+        <hr class="line-bar" />
+      </div>
+      <div class="col-12">
+        <div class="form-box">
+          <div class="form-title">Email</div>
+          <input
+            type="text"
+            formControlName="email"
+            [ngClass]="{
+              error:
+                loginForm.get('email').invalid && loginForm.get('email').touched
+            }"
+          />
+        </div>
+        <div class="form-box">
+          <div class="form-title">Password</div>
+          <input
+            type="text"
+            formControlName="password"
+            [ngClass]="{
+              error:
+                loginForm.get('password').invalid &&
+                loginForm.get('password').touched
+            }"
+          />
+        </div>
+      </div>
+      <div class="col-12 display-flex justify-content-spacebetween sub-action">
+        <div class="left-side">
+          <input
+            type="checkbox"
+            id="stayLoggedIn"
+            formControlName="stayLogedIn"
+            checked
+          />
+          <label for="stayLoggedIn" class="display-flex">
+            <span class="checkbox">
+              <i class="fas fa-check check-icon"></i>
+            </span>
+
+            <div>Stay logged in</div></label
+          >
+        </div>
+
+        <div class="right-side"><button>Reset Password</button></div>
+      </div>
+      <div class=" login-button-box display-flex">
+        <div class="col-12 col-lg-6">
+          <button class="buttons login-button" (click)="submitForm()">
+            Log in
+          </button>
+        </div>
+
+        <div class="col-12 col-lg-6">
+          <button
+            class="buttons register-button"
+            [routerLink]="['/register-detail']"
+          >
+            Register a New Account
+          </button>
+        </div>
+      </div>
+    </div>
+  </ec-page-card>
+</div>

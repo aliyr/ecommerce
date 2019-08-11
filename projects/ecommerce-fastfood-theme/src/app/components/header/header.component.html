@@ -1,0 +1,89 @@
+<div>
+  <div class="main-header ">
+    <!-- this header is shown in devices with width more than 992px -->
+    <div class="container d-none d-lg-block">
+      <div class="row">
+        <div class="col-md-4 display-flex  left-section">
+          <div class="header-element">
+            <ec-action-button gradient="vertical" (click)="openModal()"
+              >order now</ec-action-button
+            >
+          </div>
+          <div class="header-element">0121 777 7732</div>
+        </div>
+        <div class="col-md-4">
+          <div class="row justify-content-center align-items-center">
+            <div class="logo">torinoz</div>
+          </div>
+        </div>
+        <div class="col-md-4 display-flex right-section">
+          <div class="header-element login">
+            <a routerLink="/login">Log in</a>
+          </div>
+          <div class="header-element">
+            <span class="fab fa-linkedin social-media-icon"></span>
+          </div>
+          <div class="header-element">
+            <span class="fab fa-facebook-square social-media-icon"></span>
+          </div>
+          <div class="header-element">
+            <span class="fab fa-twitter-square social-media-icon"></span>
+          </div>
+          <div class="header-element">
+            <span class="fa fa-shopping-cart icon" (click)="shopCart()">
+              <span
+                class="order-items-count"
+                *ngIf="receiptCoreService.receipt.orderItems.length"
+                >{{ receiptCoreService.receipt.orderItems.length }}</span
+              >
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- this header is shown in devices with width less than 992px  -->
+    <div class="container-fluid  d-lg-none">
+      <div class="row">
+        <div class="col-12 mobile-header-element display-flex">torinoz</div>
+        <div
+          class="col-12 mobile-header-element display-flex mobile-header-box "
+        >
+          <div>
+            <ec-action-button gradient="vertical">order now</ec-action-button>
+          </div>
+          <div class="mobile-header-numbers">0121 777 7732</div>
+
+          <div>
+            <span class="fa fa-shopping-cart icon" (click)="shopCart()">
+              <span
+                class="order-items-count"
+                *ngIf="receiptCoreService.receipt.orderItems.length"
+                >{{ receiptCoreService.receipt.orderItems.length }}</span
+              >
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="menu-bar">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-12">
+          <div class="row justify-content-center ">
+            <a class="menu-item" routerLink="/home" routerLinkActive="active"
+              >HOME</a
+            >
+            <a
+              class="menu-item"
+              routerLink="/contact-us"
+              routerLinkActive="active"
+              >CONTACT</a
+            >
+            <div class="menu-item" (click)="openModal()">ORDER</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

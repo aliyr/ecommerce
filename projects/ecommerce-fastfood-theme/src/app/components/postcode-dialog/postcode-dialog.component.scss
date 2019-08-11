@@ -1,0 +1,136 @@
+@import "../../../partial-styles/colors";
+@import "../../../partial-styles/responsive";
+@import "../../../partial-styles/dialog";
+
+.dialog.postcode-dialog {
+  padding: 20px;
+  position: relative;
+  text-align: center;
+
+  .close-button {
+    position: absolute;
+    @include close-button;
+
+    @include xs {
+      right: 13px;
+      top: 13px;
+    }
+
+    @include md {
+      right: 20px;
+      top: 20px;
+    }
+
+    i {
+      font-size: 17px;
+    }
+  }
+
+  .title {
+    font-size: 23px;
+    color: map_get($primary-colors, "light");
+    font-family: "avant-garde-bold";
+
+    @include xs {
+      padding: 0 25px 15px 25px;
+    }
+
+    @include md {
+      padding: 40px 0 27px 0;
+    }
+  }
+
+  .input-container {
+    @include xs {
+      padding: 0;
+    }
+
+    @include md {
+      padding: 0 30px;
+    }
+
+    input {
+      width: 100%;
+      background-color: map_get($neutral-colors, "4");
+      color: map_get($neutral-colors, "7");
+      text-align: center;
+      font-family: "avant-garde-bold";
+      font-size: 16px;
+      line-height: 50px;
+      outline: none;
+      border: none;
+
+      &::placeholder {
+        color: map_get($neutral-colors, "7");
+      }
+    }
+  }
+
+  .error-box {
+    margin: 0 -20px;
+    @include customized-color(
+      background-color,
+      map_get($primary-colors, "light"),
+      0.11
+    );
+
+    @include xs {
+      padding: 0 10px;
+      margin-top: 15px;
+    }
+
+    @include md {
+      margin-top: 20px;
+    }
+
+    .content {
+      font-size: 15px;
+      color: map_get($primary-colors, "light");
+      font-family: "avant-garde-medium";
+      padding: 20px 0;
+    }
+  }
+
+  .button-container {
+    justify-content: center;
+    display: flex;
+
+    @include xs {
+      padding: 0;
+      flex-direction: column-reverse;
+    }
+
+    @include md {
+      padding: 25px 0 15px 0;
+      flex-direction: row;
+    }
+
+    button {
+      line-height: 55px;
+      font-size: 18px;
+      font-family: "avant-garde-bold";
+      border: none;
+      border-radius: 5px;
+
+      @include xs {
+        width: 100%;
+        margin-top: 14px;
+      }
+
+      @include md {
+        width: 190px;
+        margin-top: 0;
+      }
+
+      &.cancel {
+        margin-right: 15px;
+        background-color: map_get($neutral-colors, "5");
+        color: map_get($neutral-colors, "7");
+      }
+      &.confirm {
+        background-color: map_get($secondary-colors, "dark");
+        color: map_get($neutral-colors, "1");
+      }
+    }
+  }
+}

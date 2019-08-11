@@ -1,0 +1,3 @@
+ng new ecommerce --createApplication="false" --enable-ivy=true --prefix=ec --routing=true --skipTests=true --style=scss
+
+ng generate application ecommerce-fastfood-theme --enable-ivy=true --prefix=ec --routing=true --skipTests=true --style=scss

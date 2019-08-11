@@ -1,0 +1,150 @@
+@import "../../../partial-styles/colors";
+@import "../../../partial-styles/responsive";
+
+.main-header {
+  background-color: map-get($secondary-colors, "dark");
+  font-family: "avant-garde-bold";
+
+  .row {
+    color: map-get($neutral-colors, "1");
+    min-height: 80px;
+
+    .icon {
+      font-size: 24px;
+      cursor: pointer;
+      position: relative;
+
+      .order-items-count {
+        position: absolute;
+        width: 23px;
+        height: 23px;
+        background: map-get($primary-colors, "light");
+        top: -10px;
+        right: -10px;
+        border: 1px solid map-get($neutral-colors, "1");
+        color: map-get($neutral-colors, "1");
+        border-radius: 50%;
+        font-size: 13px;
+        text-align: center;
+        line-height: 22px;
+        font-family: "avant-garde-bold";
+      }
+    }
+
+    .right-section {
+      justify-content: flex-end;
+      align-items: center;
+      .header-element {
+        margin-left: 20px;
+        font-size: 14px;
+      }
+
+      .login {
+        text-transform: uppercase;
+        cursor: pointer;
+        margin-right: 10px;
+        a {
+          color: white;
+          text-decoration: none;
+        }
+      }
+    }
+
+    .left-section {
+      justify-content: flex-start;
+      align-items: center;
+      .header-element {
+        margin-right: 20px;
+        font-size: 14px;
+      }
+    }
+  }
+  .mobile-header-element {
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    min-height: 55px;
+  }
+  .mobile-header-numbers {
+    margin: 0 15px 0 23px;
+  }
+  .mobile-header-box {
+    @include xs {
+      flex-direction: column;
+      & div {
+        margin-bottom: 15px;
+      }
+    }
+    @include sm {
+      flex-direction: row;
+    }
+  }
+}
+
+.menu-bar {
+  background-color: map-get($neutral-colors, "4");
+  font-size: 16px;
+  color: map-get($primary-colors, "light");
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.18);
+  position: relative;
+  z-index: 10;
+
+  .menu-item {
+    position: relative;
+    height: 45px;
+    line-height: 45px;
+    cursor: pointer;
+    text-align: center;
+    font-family: "avant-garde-bold";
+    text-decoration: none;
+    color: map-get($primary-colors, "light");
+
+    @include xs {
+      width: 33%;
+    }
+    @include md {
+      width: 130px;
+    }
+    &:hover {
+      background-color: map-get($neutral-colors, "6");
+    }
+
+    &::before {
+      right: 100%;
+      height: 100%;
+      border-right: 1px solid map-get($neutral-colors, "6");
+      border-left: 1px solid map-get($neutral-colors, "1");
+      content: "";
+      width: 1px;
+      position: absolute;
+    }
+    &:first-child {
+      &::before {
+        @include xs {
+          display: none;
+        }
+        @include md {
+          display: block;
+        }
+      }
+    }
+    &:last-child {
+      &::after {
+        left: 100%;
+        height: 100%;
+        border-right: 1px solid map-get($neutral-colors, "5");
+        border-left: 1px solid map-get($neutral-colors, "1");
+        content: "";
+        width: 1px;
+        position: absolute;
+        top: 0;
+        @include xs {
+          display: none;
+        }
+        @include md {
+          display: block;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,33 @@
+@import "colors";
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  @include customized-color(
+    background-color,
+    map_get($neutral-colors, "8"),
+    0.08
+  );
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  @include customized-color(
+    background-color,
+    map_get($neutral-colors, "8"),
+    0.08
+  );
+  border-radius: 6px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  @include customized-color(
+    background-color,
+    map_get($neutral-colors, "8"),
+    0.3
+  );
+  opacity: 1;
+}

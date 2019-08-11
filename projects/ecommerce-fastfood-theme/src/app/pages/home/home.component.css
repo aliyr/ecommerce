@@ -1,0 +1,27 @@
+.home-page .home-header {
+  height: 470px;
+  background-image: url("../../../assets/media/header-bgx2.png");
+  background-size: cover;
+  background-position: center;
+  background-color: black;
+}
+.home-page .home-header .content {
+  flex-direction: column;
+  color: #ffffff;
+  width: 100%;
+  text-transform: uppercase;
+}
+.home-page .home-header .content .primary-title {
+  font-size: 42px;
+  font-family: "avant-garde-bold";
+  letter-spacing: 0.2em;
+  padding-bottom: 20px;
+}
+.home-page .home-header .content .secondary-title {
+  font-size: 20px;
+  font-family: "avant-garde-bold";
+  padding-bottom: 32px;
+  letter-spacing: 0.13em;
+}
+
+/*# sourceMappingURL=home.component.css.map */

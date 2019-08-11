@@ -1,0 +1,111 @@
+<div class="contact-us">
+  <div class="container ">
+    <div class="row ">
+      <div class="col-12 col-lg-4">
+        <div class="contact-us-text">
+          <div class="title">Get in touch</div>
+          <div class="sub-title">
+            Order now on <span class="tel">0121 777 7732</span>
+          </div>
+          <div class="main-text">
+            <p>
+              If your order is late, incorrect, or you’re not happy with the
+              food, please contact the takeaway directly on
+              <span class="tel">0121 777 7732</span> .
+            </p>
+
+            <p>
+              If you paid online and require a refund, and you’re unable to
+              contact the takeaway please contact Datman LTD on
+              <span class="tel">01534 876163</span> who will attempt to contact
+              Torinoz in order to resolve your request.
+            </p>
+          </div>
+          <div class="opening-time">
+            <div class="open-time-title">Todays opening times</div>
+            <div class="display-flex">
+              <div class="collection-type">Collection</div>
+              <div>12:00 - 23:00</div>
+            </div>
+
+            <div class="display-flex">
+              <div class="collection-type">Dellivery</div>
+              <div>12:00 - 23:45</div>
+            </div>
+          </div>
+          <div class="address">
+            <div class="address-header">Torinoz</div>
+            1213 Stratford Road, Hall Green, Birmingham, B28 9AD
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-lg-8 ">
+        <div class="contact-us-form row" [formGroup]="contactUsForm">
+          <div class="col-12">
+            <input
+              type="text"
+              class="form-input"
+              placeholder="Your Name"
+              formControlName="name"
+              [ngClass]="{
+                hasError:
+                  contactUsForm.get('name').invalid &&
+                  contactUsForm.get('name').touched
+              }"
+            />
+          </div>
+          <div class="col-12 col-lg-6">
+            <input
+              type="text"
+              class="form-input"
+              placeholder="Telephone"
+              formControlName="telephone"
+              [ngClass]="{
+                hasError:
+                  contactUsForm.get('telephone').invalid &&
+                  contactUsForm.get('telephone').touched
+              }"
+            />
+          </div>
+          <div class="col-12 col-lg-6">
+            <input
+              type="text"
+              class="form-input"
+              placeholder="Email"
+              formControlName="email"
+              [ngClass]="{
+                hasError:
+                  contactUsForm.get('email').invalid &&
+                  contactUsForm.get('email').touched
+              }"
+            />
+          </div>
+          <div class="col-12">
+            <textarea
+              name=""
+              id=""
+              class="form-input form-textarea"
+              placeholder="Message"
+              formControlName="message"
+              [ngClass]="{
+                hasError:
+                  contactUsForm.get('message').invalid &&
+                  contactUsForm.get('message').touched
+              }"
+            ></textarea>
+          </div>
+          <div class="col-12">
+            <ec-action-button
+              gradient="horizontal"
+              [styles]="{ width: '100%' }"
+              size="large"
+              (click)="submitForm()"
+            >
+              submit</ec-action-button
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

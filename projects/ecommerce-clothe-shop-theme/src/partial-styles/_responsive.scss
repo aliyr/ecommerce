@@ -1,0 +1,39 @@
+// grid lg is equal to col-lg in bootstrap
+// and also it means include it when width is more than 992px
+$grid-breakpoints: (
+  xs: 0,
+  sm: 361px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px
+);
+
+@mixin xs {
+  @media (min-width: #{map-get($grid-breakpoints , xs)}) {
+    @content;
+  }
+}
+
+@mixin sm {
+  @media (min-width: #{map-get($grid-breakpoints , sm)}) {
+    @content;
+  }
+}
+
+@mixin md {
+  @media (min-width:  #{map-get($grid-breakpoints , md)}) {
+    @content;
+  }
+}
+
+@mixin lg {
+  @media (min-width: #{map-get($grid-breakpoints , lg)}) {
+    @content;
+  }
+}
+
+@mixin xl {
+  @media (min-width: #{map-get($grid-breakpoints , xl)}) {
+    @content;
+  }
+}

@@ -1,0 +1,26 @@
+/* You can add global styles to this file, and also import other style files */
+@import "partial-styles/colors";
+
+@import "~ngx-owl-carousel-o/lib/styles/scss/owl.carousel";
+@import "~ngx-owl-carousel-o/lib/styles/scss/owl.theme.default";
+
+@import "partial-styles/font";
+@import "partial-styles/custom-scroll-bar";
+
+@import "~@fortawesome/fontawesome-pro/css/all.min.css";
+
+@import "~bootstrap/scss/bootstrap-grid";
+@import "~bootstrap/scss/bootstrap-reboot";
+
+// partial styles
+
+@import "partial-styles/social";
+@import "partial-styles/template";
+@import "partial-styles/dialog";
+
+*,
+*::after,
+*::before {
+  transition: 0.2s;
+  scroll-behavior: smooth;
+}

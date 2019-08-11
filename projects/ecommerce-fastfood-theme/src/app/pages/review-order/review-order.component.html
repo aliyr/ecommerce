@@ -1,0 +1,217 @@
+<div id="review-order">
+  <ec-page-card>
+    <div class="col-12 col-lg-9 review-order-card">
+      <div class="col-12 review-order-header">
+        Review Order
+      </div>
+      <div class="col-12 review-order-title">
+        View your current orders and previously placed / completed orders
+      </div>
+
+      <div class="col-12">
+        <hr
+          class="line"
+          [attr.data-title]="userInfoCoreService.userInfo.collectType"
+        />
+      </div>
+      <div class="col-12">
+        <div class="row ">
+          <div class="col-12 col-lg-6 orders">
+            <div *ngFor="let order of receiptCoreService.receipt.orderItems">
+              <div class="display-flex product-title">
+                <div class="order-titles">{{ order.product.name }}</div>
+                <div class="cost">
+                  {{ order.product.price | currency: order.product.currency }}
+                </div>
+              </div>
+              <div
+                class="paid-attributes display-flex"
+                *ngFor="let attributes of order.paidAttributes"
+              >
+                <div class="display-flex">
+                  <div class="paid-icon">+</div>
+                  <div class="order-titles">{{ attributes.name }}</div>
+                </div>
+                <div class="cost">
+                  {{ attributes.price | currency: attributes.currency }}
+                </div>
+              </div>
+              <div
+                class="no-attributes display-flex"
+                *ngIf="order.noAttributes"
+              >
+                <div class="display-flex">
+                  <div class="no-icon" *ngIf="order.noAttributes.length">No</div>
+                  <div>
+                    <span
+                      class="order-titles"
+                      *ngFor="
+                        let noAttributes of order.noAttributes;
+                        let i = index
+                      "
+                      >{{ noAttributes.name
+                      }}<span *ngIf="i + 1 < order.noAttributes.length"
+                        >,
+                      </span></span
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="summary col-12">
+              <div class="summary-box">
+                <span>subtotal</span>
+                <span class="cost">
+                  {{
+                    receiptCoreService.receipt.subTotal
+                      | currency: receiptCoreService.receipt.currency
+                  }}
+                </span>
+              </div>
+              <div
+                class="summary-box"
+                [hidden]="
+                  userInfoCoreService.userInfo.collectType !== 'delivery'
+                "
+              >
+                <span class="takeaway-type">{{
+                  receiptCoreService.receipt.takeaway
+                }}</span>
+                <span class="cost">
+                  {{
+                    receiptCoreService.receipt.deliveryCharge
+                      | currency: receiptCoreService.receipt.currency
+                  }}
+                </span>
+              </div>
+
+              <div class="summary-box total-box">
+                <span>total</span>
+                <span>{{
+                  receiptCoreService.receipt.total
+                    | currency: receiptCoreService.receipt.currency
+                }}</span>
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-lg-6 user-info">
+            <div class="user-info-title">Deliver to</div>
+            <div class="div address">
+              {{ userInfoCoreService.userInfo.firstName }}
+              {{ userInfoCoreService.userInfo.lastName }},
+              {{ userInfoCoreService.userInfo.addressLine1 }}
+            </div>
+            <div class="user-info-title">Notes</div>
+            <div>
+              <textarea
+                [(ngModel)]="receiptCoreService.receipt.note"
+              ></textarea>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="col-12"
+        [hidden]="!(userInfoCoreService.userInfo.paymentType === 'card')"
+      >
+        <div class="row card-details" [formGroup]="cardDetails">
+          <div class="col-12">
+            <hr data-title="YOUR CARD DETAILS" class="line" />
+          </div>
+          <div class="col-lg-6 col-12 input-box">
+            <span>Name</span>
+            <input
+              type="text"
+              formControlName="name"
+              [ngClass]="{
+                hasError:
+                  cardDetails.get('name').invalid &&
+                  cardDetails.get('name').touched
+              }"
+            />
+          </div>
+          <div class="col-lg-6 col-12 input-box">
+            <span>Card</span>
+            <input
+              type="text"
+              formControlName="cardNumber"
+              maxlength="19"
+              placeholder="0000 0000 0000 0000"
+              [value]="cardDetails.get('cardNumber').value | cardNumber"
+              [ngClass]="{
+                hasError:
+                  cardDetails.get('cardNumber').invalid &&
+                  cardDetails.get('cardNumber').touched
+              }"
+            />
+          </div>
+          <div class="col-lg-6 col-12 input-box">
+            <span> Expiry</span>
+            <input
+              type="text"
+              formControlName="expiry"
+              [value]="cardDetails.get('expiry').value | expiryDate"
+              maxlength="5"
+              [ngClass]="{
+                hasError:
+                  cardDetails.get('expiry').invalid &&
+                  cardDetails.get('expiry').touched
+              }"
+            />
+          </div>
+          <div class="col-lg-6 col-12 input-box">
+            <span ecToggler [target]="cvvHint" class="tooltip-box">
+              <span>CVV</span>
+              <span class="question-mark">
+                <i class="fas fa-question "></i>
+              </span>
+              <span #cvvHint class="cvv-hint">
+                something something something
+              </span>
+            </span>
+
+            <input
+              type="text"
+              formControlName="cvv"
+              [ngClass]="{
+                hasError:
+                  cardDetails.get('cvv').invalid &&
+                  cardDetails.get('cvv').touched
+              }"
+            />
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12">
+        <div class="row actions-box">
+          <div class="col-12">
+            <hr class="line no-title" />
+          </div>
+          <div class="col-12">
+            <button
+              class="buttons form-confirm-button"
+              (click)="submitCardForm()"
+              [ngClass]="{
+                'disabled-button':
+                  userInfoCoreService.userInfo.paymentType === 'card' &&
+                  !cardDetails.valid
+              }"
+            >
+              Confirm card details & order
+            </button>
+          </div>
+          <div class="col-12">
+            <button
+              class="buttons form-back-button"
+              [routerLink]="['/register-detail']"
+              routerLinkActive="router-link-active"
+            >
+              Go Back
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </ec-page-card>
+</div>

@@ -1,0 +1,94 @@
+@import "../../../partial-styles/colors";
+.header-container {
+  .header-top {
+    background-color: map-get($neutral-colors, "9");
+
+    .top-header-container {
+      justify-content: space-between;
+      align-items: center;
+      height: 35px;
+      .top-header-left-side {
+        display: flex;
+        align-items: center;
+        height: 100%;
+
+        font-family: sans-serif;
+        font-size: 15px;
+        color: map-get($neutral-colors, "1");
+        .need-help {
+          margin-right: 25px;
+          a {
+            cursor: pointer;
+          }
+        }
+        .gray-scale {
+          color: map-get($neutral-colors, "4");
+        }
+      }
+      .top-header-right-side {
+        height: 100%;
+        display: flex;
+        .right-side-elements {
+          cursor: pointer;
+          padding: 0 15px;
+          background-color: transparent;
+          border: 0;
+          color: map-get($neutral-colors, "3");
+          transition: 0.2s;
+
+          &:hover {
+            color: map-get($neutral-colors, "2");
+          }
+          outline: 0;
+          border-left: 2px solid rgba(255, 255, 255, 0.1);
+          line-height: 35px;
+          &:last-child {
+            border-right: 2px solid rgba(255, 255, 255, 0.1);
+          }
+        }
+      }
+    }
+  }
+  .header-bottom {
+    box-shadow: 0 1px 2px 1px rgba(0, 0, 0, 0.18);
+    color: map-get($neutral-colors, "7");
+    position: relative;
+    &.home-page-header {
+      position: absolute;
+      color: map-get($neutral-colors, "1");
+    }
+    width: 100%;
+    background-color: transparent;
+    .bottom-header-container {
+      justify-content: space-between;
+      align-items: center;
+      min-height: 80px;
+      .header-menu {
+        display: flex;
+        justify-content: center;
+        .menu-elements {
+          display: flex;
+          align-items: center;
+          font-size: 17px;
+          color: inherit;
+          padding: 15px;
+          outline: 0;
+          border: none;
+          background-color: transparent;
+          .shopping-bag {
+            display: inline-block;
+            background: url("../../../assets/media/orange-shopping-bag.svg");
+            width: 21px;
+            height: 26px;
+            background-position: center;
+            background-size: cover;
+            margin-right: 10px;
+            &.home-page-shopping-bag {
+              background: url("../../../assets/media/white-shopping-bag.svg");
+            }
+          }
+        }
+      }
+    }
+  }
+}
